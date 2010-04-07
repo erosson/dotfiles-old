@@ -1,8 +1,12 @@
-altscreen on
+# Scrollback with shift+pgup/down
 termcapinfo xterm ti@:te@
+# make vim go away when we're done
+altscreen on
+# stop blinking
 vbell off
 #shell zsh # or $SHELL
-maptimeout 0
+#maptimeout 0
+defscrollback 2000
 
 #change the hardstatus settings to give an window list at the bottom of the
 #screen, with the time and date and with the current window highlighted
