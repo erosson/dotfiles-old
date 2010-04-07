@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/media/ahiru/Documents/porn'
+let g:netrw_dirhist_2='/home/evan/luatest/test/.git'
+let g:netrw_dirhist_3='/media/win/touhoukaeduka-h5nc-read-only/Develop/Resource/Script_Lua/HDSS/Scene'
+let g:netrw_dirhist_4='/media/ahiru/Documents/profile/.ssh'
+let g:netrw_dirhist_5='/media/ahiru/Documents/profile/.git'

@@ -1,0 +1,33 @@
+! Activate the third column here
+keysym Super_L = Mode_switch
+
+! Switch caps and escape. Also, Super+Caps = Return
+remove Lock = Caps_Lock
+keysym Escape = Caps_Lock
+keysym Caps_Lock = Escape Escape Return
+add Lock = Caps_Lock
+
+! Use VI-ish directions everywhere: win-hjkl are arrow keys
+keysym h = h H Left 
+keysym j = j J Down
+keysym k = k K Up
+keysym l = l L Right
+
+! Next = page down; Prior = page up
+keysym m = m M Next
+keysym n = n N Prior
+
+! We use underscores a lot more than dashes
+!keysym minus = underscore minus
+
+! Left side arrows
+keysym a = a A Left 
+keysym s = s S Down
+keysym w = w W Up
+keysym d = d D Right
+keysym q = q Q Prior
+keysym e = e E Next
+
+! Spacebar scrolls in browsers; this slows it down a bit
+!keysym space = space space Down Up
+keysym space = space space Down
