@@ -1,0 +1,3 @@
+* TODO http://emacsen.livejournal.com/151356.html - emacs server/quicker startup time
+* TODO some list of urls to read later
+* TODO private dotfiles?ZZ
