@@ -3,3 +3,7 @@ co = checkout
 st = status
 [user]
 name = Evan
+email = evan@scruffy
+[diff]
+[color]
+	ui = auto
