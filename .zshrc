@@ -29,7 +29,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 # end http://github.com/robbyrussell/oh-my-zsh
-#
 
 # http://www.faqs.org/docs/bashman/bashref_102.html
 set -o emacs
@@ -47,6 +46,7 @@ alias vim='vim -X'
 alias ssh='ssh -2'
 alias today='date +%Y%m%d'
 alias today-path='date +%Y/%m/%d'
+alias jconsole='/apollo/env/JavaSE6/jdk1.6.0/bin/jconsole'
 export LESS="-iFRX"
 export PATH=$HOME/bin:$PATH:$HOME/.cabal/bin:$HOME/.gem/ruby/1.8/bin
 
