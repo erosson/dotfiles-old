@@ -1,0 +1,3 @@
+# We checkout in /home: ignore everything unless explicitly added
+*
+.*
