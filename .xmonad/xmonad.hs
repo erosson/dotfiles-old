@@ -5,6 +5,7 @@ import XMonad.Layout.NoBorders(smartBorders)
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Config.Gnome
+import XMonad.ManageHook
 import System.IO
 
 -- http://xmonad.org/xmonad-docs/xmonad/src/XMonad-Config.html
@@ -19,6 +20,9 @@ main = do
         -- don't show the red border for a single fullscreen app
         -- http://donsbot.wordpress.com/2010/03/13/after-3-years-my-xmonad-configuration-now-uses-gnome/
         { layoutHook = smartBorders (layoutHook gnomeConfig)
+        -- gnome-do is a floating window. http://ubuntuforums.org/showthread.php?t=975329
+        , manageHook = manageHook gnomeConfig <+> composeAll [ resource  =? "Do"   --> doIgnore ]
+        -- terminal
         , terminal = "gnome-terminal --hide-menubar"
         } `additionalKeys`
         --[ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
@@ -34,4 +38,6 @@ main = do
         --
         --, ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         --, ((0, xK_Print), spawn "scrot")
+        -- gnome-do instead of default gnome launcher
+        , ((mod1Mask, xK_p), spawn "gnome-do")
         ]
