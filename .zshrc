@@ -27,6 +27,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# no usernames when completing `cd` please
+# http://github.com/robbyrussell/oh-my-zsh/issues/issue/34#issue/34/comment/186920
+# (if this fails, maybe http://github.com/robbyrussell/oh-my-zsh/issues/#issue/80 )
+unset config_file
+
 # Customize to your needs...
 # end http://github.com/robbyrussell/oh-my-zsh
 
