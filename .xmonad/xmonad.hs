@@ -39,5 +39,5 @@ main = do
         --, ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         --, ((0, xK_Print), spawn "scrot")
         -- gnome-do instead of default gnome launcher
-        , ((mod1Mask, xK_p), spawn "gnome-do")
+        --, ((mod1Mask, xK_p), spawn "gnome-do")
         ]
