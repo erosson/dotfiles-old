@@ -15,7 +15,7 @@ alias ssh='ssh -2'
 alias today='date +%Y%m%d'
 alias today-path='date +%Y/%m/%d'
 export LESS="-iFRX"
-export PATH=$HOME/bin:$PATH:$HOME/.cabal/bin:$HOME/.gem/ruby/1.8/bin
+export PATH=$HOME/bin:$PATH:$HOME/.cabal/bin:$HOME/.gem/ruby/1.8/bin:/var/lib/gems/1.8/bin
 
 # Make java-swing work
 # http://www.haskell.org/pipermail/xmonad/2007-June/001090.html
