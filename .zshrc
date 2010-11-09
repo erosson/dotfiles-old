@@ -9,8 +9,8 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-#export ZSH_THEME="robbyrussell"
-export ZSH_THEME="clean"
+export ZSH_THEME="robbyrussell"
+#export ZSH_THEME="clean"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -53,7 +53,10 @@ alias today='date +%Y%m%d'
 alias today-path='date +%Y/%m/%d'
 alias jconsole='/apollo/env/JavaSE6/jdk1.6.0/bin/jconsole'
 export LESS="-iFRX"
-export PATH=$HOME/bin:$PATH:$HOME/.cabal/bin:$HOME/.gem/ruby/1.8/bin:/var/lib/gems/1.8/bin
+#export PATH=$HOME/bin:$PATH:$HOME/.cabal/bin:$HOME/.gem/ruby/1.8/bin:/var/lib/gems/1.8/bin
+export PATH=/home/evan/bin:$HOME/haxe/bin:/home/evan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/evan/.cabal/bin:/home/evan/.gem/ruby/1.9.1/bin:/var/lib/gems/1.9.1/bin
+
+export MANPATH=$MANPATH:$HOME/shared/man
 
 # Make java-swing work
 # http://www.haskell.org/pipermail/xmonad/2007-June/001090.html
