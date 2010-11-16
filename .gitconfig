@@ -7,3 +7,6 @@ email = evan@scruffy
 [diff]
 [color]
 	ui = auto
+[github]
+	user = erosson
+	token = 49306d14da0cfaa46c5e425950f16404
