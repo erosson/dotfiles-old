@@ -1,6 +1,7 @@
 [alias]
 co = checkout
 st = status
+dropbox-init = "!f(){ if [ \"$#\" -ne \"1\" ]; then echo 'usage: git dropbox-init NAME'; exit 1; fi; dir=\"$HOME/Dropbox/git/$1\"; git init --bare \"$dir\"; git remote add origin \"$dir\"; git push origin master; }; f"
 [user]
 name = Evan
 email = evan@scruffy
