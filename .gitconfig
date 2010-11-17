@@ -6,6 +6,8 @@ dropbox-init = "!f(){ if [ \"$#\" -ne \"1\" ]; then echo 'usage: git dropbox-ini
 # List dropbox repos, most recent last/closest to the bottom
 dropbox-ls = "!f(){ ls -lrt \"$HOME/Dropbox/git/$1\"; }; f"
 dropbox-clone = "!f(){ ls \"$HOME/Dropbox/git/$1\"; git clone \"$HOME/Dropbox/git/$1\"; }; f"
+# Clone with submodules
+clonesub = "!f(){ git clone \"$@\"; cd `basename \"$1\"`; git submodule init; git submodule update; }; f"
 [user]
 name = Evan
 email = evan@scruffy
