@@ -1,7 +1,11 @@
 [alias]
 co = checkout
 st = status
-dropbox-init = "!f(){ if [ \"$#\" -ne \"1\" ]; then echo 'usage: git dropbox-init NAME'; exit 1; fi; dir=\"$HOME/Dropbox/git/$1\"; git init --bare \"$dir\"; git remote add origin \"$dir\"; git push origin master; }; f"
+# Create a new git repo in dropbox, as the origin of the current repo
+dropbox-init = "!f(){ if [ \"$#\" -ne \"1\" ]; then echo 'usage: git dropbox-init NAME'; exit 1; fi; dir=\"$HOME/Dropbox/git/$1\"; git init --bare \"$dir\"; git remote add origin \"$dir\"; git push origin --all; }; f"
+# List dropbox repos, most recent last/closest to the bottom
+dropbox-ls = "!f(){ ls -lrt \"$HOME/Dropbox/git/$1\"; }; f"
+dropbox-clone = "!f(){ ls \"$HOME/Dropbox/git/$1\"; git clone \"$HOME/Dropbox/git/$1\"; }; f"
 [user]
 name = Evan
 email = evan@scruffy
