@@ -5,7 +5,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Download and install oh-my-zsh if we haven't already
-[ -e $HOME/.oh-my-zsh ] || wget http://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+[ -e $HOME/.oh-my-zsh ] || wget --no-check-certificate http://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -54,10 +54,11 @@ alias today-path='date +%Y/%m/%d'
 alias jconsole='/apollo/env/JavaSE6/jdk1.6.0/bin/jconsole'
 export LESS="-iFRX"
 #export PATH=$HOME/bin:$PATH:$HOME/.cabal/bin:$HOME/.gem/ruby/1.8/bin:/var/lib/gems/1.8/bin
-export PATH=/home/evan/bin:$HOME/haxe/bin:/home/evan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/evan/.cabal/bin:/home/evan/.gem/ruby/1.9.1/bin:/var/lib/gems/1.9.1/bin
+export PATH=/home/evan/bin:$HOME/haxe/bin:/home/evan/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/evan/.cabal/bin:/home/evan/.gem/ruby/1.9.1/bin:/var/lib/gems/1.9.1/bin:$HOME/local/bin/
 
 export MANPATH=$MANPATH:$HOME/shared/man
 
+export WINDOW_MANAGER=xmonad
 # Make java-swing work
 # http://www.haskell.org/pipermail/xmonad/2007-June/001090.html
 export AWT_TOOLKIT=MToolkit
