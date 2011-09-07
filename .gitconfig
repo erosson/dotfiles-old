@@ -1,6 +1,7 @@
 [alias]
 co = checkout
 st = status
+br = branch
 # Create a new git repo in dropbox, as the origin of the current repo
 dropbox-init = "!f(){ if [ \"$#\" -ne \"1\" ]; then echo 'usage: git dropbox-init NAME'; exit 1; fi; dir=\"$HOME/Dropbox/git/$1\"; git init --bare \"$dir\"; git remote add origin \"$dir\"; git push origin --all; }; f"
 # List dropbox repos, most recent last/closest to the bottom
