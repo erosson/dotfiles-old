@@ -9,9 +9,6 @@ dropbox-ls = "!f(){ ls -lrt \"$HOME/Dropbox/git/$1\"; }; f"
 dropbox-clone = "!f(){ ls \"$HOME/Dropbox/git/$1\"; git clone \"$HOME/Dropbox/git/$1\"; }; f"
 # Clone with submodules
 clonesub = "!f(){ git clone \"$@\"; cd `basename \"$1\"`; git submodule init; git submodule update; }; f"
-[user]
-name = Evan
-email = evan@scruffy
 [diff]
 [color]
 	ui = auto
