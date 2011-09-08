@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+killall metacity
+xmonad
+gconftool-2 --toggle /apps/nautilus/preferences/show_desktop
+sleep 3
+gconftool-2 --toggle /apps/nautilus/preferences/show_desktop
