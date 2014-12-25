@@ -8,3 +8,6 @@ br = branch
 [user]
 	email = github@erosson.org
 	name = Evan Rosson
+[credential]
+	# TODO: this is insecure, shame on me. set up ssh keys instead.
+	helper = store
