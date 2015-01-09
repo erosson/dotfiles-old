@@ -42,6 +42,8 @@ alias vim='vim -X'
 alias ssh='ssh -2'
 export LESS="-iFRX"
 export PATH=$HOME/bin:$PATH
+# .dircolors; brighter ls directory colors
+export LS_COLORS="di=01;35"
 
 # allows ^ and ~: http://zsh.dotsrc.org/FAQ/zshfaq02.html
 setopt extended_glob

@@ -1,4 +1,5 @@
 syntax enable
+set background=dark
 nmap <F1> :make<CR>
 
 " {{{ tabs
