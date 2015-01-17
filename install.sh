@@ -15,3 +15,9 @@ git config --global user.name 'Evan Rosson'
 git config --global user.email `echo tvguho@rebffba.bet | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'` 
 
 sudo apt-get install zsh screen vim -y
+sudo chsh -s /bin/zsh `whoami` 
+
+# keygen needs manual input. do this last.
+test -e ~/.ssh/id_rsa || ssh-keygen -t rsa
+echo 'https://github.com/settings/ssh'
+cat ~/.ssh/id_rsa.pub
