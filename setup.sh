@@ -61,10 +61,7 @@ sudo systemctl enable syncthing@$USER.service
 sudo systemctl start syncthing@$USER.service 
 
 yarn global add firebase-tools flow-bin@0.53.1 babel-cli
-# `apm install` is not idempotent; this is. https://discuss.atom.io/t/apm-install-cmd-only-install-if-not-installed/18842/3
-for p in nuclide vim-mode-plus; do
-  test -d ~/.atom/packages/$p || apm install $p
-done
+. ./atom.sh
 
 # more file watchers. https://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
