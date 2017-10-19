@@ -7,7 +7,7 @@ sudo apt install -y screen vim git xclip curl rsync htop zsh
 
 # caps/esc swap
 # https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc
-dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
 
 # install dotfiles - assuming we're at ~/code/dotfiles
 cd ~
