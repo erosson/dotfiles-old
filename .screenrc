@@ -4,7 +4,7 @@ termcapinfo xterm ti@:te@
 altscreen on
 # stop blinking
 vbell off
-#shell zsh # or $SHELL
+shell fish # or $SHELL
 #maptimeout 0
 defscrollback 2000
 

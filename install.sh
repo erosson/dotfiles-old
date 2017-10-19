@@ -5,5 +5,5 @@
 which git || (sudo apt update && sudo apt install -y git)
 rm -rf code/dotfiles
 mkdir -p code
-(cd code && git clone git@github.com:erosson/dotfiles.git)
+(cd code && git clone https://github.com/erosson/dotfiles.git)
 (cd code/dotfiles && ./setup.sh)

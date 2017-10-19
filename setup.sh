@@ -1,9 +1,14 @@
 #!/bin/sh -eux
 
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y screen vim git xclip curl rsync htop zsh
+
 # install dotfiles - assuming we're at ~/code/dotfiles
 cd ~
 for f in `ls -A ~/code/dotfiles/`; do
-  if [ "$f" != "install.sh" -a "$f" != ".git" ]; then
+  if [ "$f" != "install.sh" -a "$f" != ".git" -a "$f" != "setup.sh" ]; then
     ln -s code/dotfiles/$f || echo "skipped $f"
   fi
 done
@@ -21,7 +26,7 @@ sudo add-apt-repository -y ppa:nathan-renniewaldock/flux
 #sudo apt-add-repository -y ppa:fish-shell/release-2
 sudo apt-add-repository -y "deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu $release main"
 # dropbox: https://www.dropbox.com/help/desktop-web/linux-repository
-sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+#sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
 #sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu (lsb_release -sc) main"
 #sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $release main"
 sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $old_release main"
@@ -36,20 +41,29 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 # yarn: https://yarnpkg.com/lang/en/docs/install/
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+# syncthing: https://apt.syncthing.net/
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+# tarsnap: https://www.tarsnap.com/pkg-deb.html
+wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc -O - | sudo apt-key add -
+sudo sh -c "echo \"deb http://pkg.tarsnap.com/deb/$release ./\" > /etc/apt/sources.list.d/tarsnap.list"
 
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 sudo apt update
-sudo apt upgrade -y
-sudo apt install -y screen vim git xclip curl rsync htop zsh
-sudo apt install -y google-chrome-stable fluxgui nodejs yarn fish docker-ce atom
+sudo apt install -y google-chrome-stable fluxgui nodejs yarn fish docker-ce atom syncthing tarsnap
 
 sudo chsh -s /usr/bin/fish `whoami` 
+# run syncthing on startup
+sudo systemctl enable syncthing@$USER.service 
+sudo systemctl start syncthing@$USER.service 
 
-yarn global add firebase-tools flow-bin babel-cli
+yarn global add firebase-tools flow-bin@0.53.1 babel-cli
 # `apm install` is not idempotent; this is. https://discuss.atom.io/t/apm-install-cmd-only-install-if-not-installed/18842/3
 for p in nuclide vim-mode-plus; do
   test -d ~/.atom/packages/$p || apm install $p
 done
+
+# more file watchers. https://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 git config --global user.name 'Evan'
 # rot13 email, because spambots. http://stackoverflow.com/questions/5442436/using-rot13-and-tr-command-for-having-an-encrypted-email-address
