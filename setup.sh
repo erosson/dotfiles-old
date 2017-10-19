@@ -5,13 +5,17 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install -y screen vim git xclip curl rsync htop zsh
 
+# caps/esc swap
+# https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+
 # install dotfiles - assuming we're at ~/code/dotfiles
 cd ~
-for f in `ls -A ~/code/dotfiles/`; do
-  if [ "$f" != "install.sh" -a "$f" != ".git" -a "$f" != "setup.sh" ]; then
-    ln -s code/dotfiles/$f || echo "skipped $f"
-  fi
+for f in `ls -A ~/code/dotfiles/home/`; do
+  ln -s code/dotfiles/home/$f || echo "skipped $f"
 done
+mkdir -p .config/fish/
+ln -s ../../code/dotfiles/config.fish .config/fish/config.fish
 
 # apt repositories
 #release=(lsb_release -sc)
