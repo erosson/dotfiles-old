@@ -55,10 +55,7 @@ sudo sh -c "echo \"deb http://pkg.tarsnap.com/deb/$release ./\" > /etc/apt/sourc
 sudo apt update
 sudo apt install -y google-chrome-stable fluxgui nodejs yarn fish docker-ce atom syncthing tarsnap
 
-sudo chsh -s /usr/bin/fish `whoami` 
-# run syncthing on startup
-sudo systemctl enable syncthing@$USER.service 
-sudo systemctl start syncthing@$USER.service 
+. ./autostart.sh
 
 yarn global add firebase-tools flow-bin@0.53.1 babel-cli
 . ./atom.sh
