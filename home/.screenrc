@@ -4,7 +4,7 @@ termcapinfo xterm ti@:te@
 altscreen on
 # stop blinking
 vbell off
-shell fish # or $SHELL
+shell /usr/bin/fish
 #maptimeout 0
 defscrollback 2000
 
