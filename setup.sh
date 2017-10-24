@@ -63,6 +63,7 @@ yarn global add firebase-tools flow-bin@0.53.1 babel-cli
 # more file watchers. https://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
+git config --global core.editor vim
 git config --global user.name 'Evan'
 # rot13 email, because spambots. http://stackoverflow.com/questions/5442436/using-rot13-and-tr-command-for-having-an-encrypted-email-address
 git config --global user.email `echo tvguho@rebffba.bet | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'` 
