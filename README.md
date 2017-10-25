@@ -1,4 +1,6 @@
-set up a new ubuntu machine.
+[![Build Status](https://travis-ci.org/erosson/dotfiles.svg?branch=master)](https://travis-ci.org/erosson/dotfiles)
+
+set up a new ubuntu machine configured the way I like.
 
 usage: 
 
