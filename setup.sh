@@ -1,21 +1,25 @@
 #!/bin/sh -eux
 
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y screen vim git xclip curl rsync htop zsh
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install -y screen vim git xclip curl rsync htop zsh wget
 
 # caps/esc swap
 # https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc
-dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
+set +u
+[ -z "$CI" ] && dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
+set -u
 
 # install dotfiles - assuming we're at ~/code/dotfiles
 cd ~
 for f in `ls -A ~/code/dotfiles/home/`; do
   ln -s code/dotfiles/home/$f || echo "skipped $f"
 done
-mkdir -p .config/fish/
+mkdir -p ~/.config/fish/
+rm -f ~/.config/fish/config.fish
 ln -s ../../code/dotfiles/config.fish .config/fish/config.fish
+cd -
 
 # apt repositories
 #release=(lsb_release -sc)
@@ -25,12 +29,12 @@ old_release="xenial"
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 # f.lux: https://github.com/xflux-gui/xflux-gui#install-instructions
-sudo add-apt-repository -y ppa:nathan-renniewaldock/flux
+#sudo add-apt-repository -y ppa:nathan-renniewaldock/flux
 # fish: https://launchpad.net/~fish-shell/+archive/ubuntu/release-2
-#sudo apt-add-repository -y ppa:fish-shell/release-2
-sudo apt-add-repository -y "deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu $release main"
+sudo apt-add-repository -y ppa:fish-shell/release-2
+#sudo apt-add-repository -y "deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu $release main"
 # dropbox: https://www.dropbox.com/help/desktop-web/linux-repository
-#sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
 #sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu (lsb_release -sc) main"
 #sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $release main"
 sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $old_release main"
@@ -52,8 +56,8 @@ echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sourc
 wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc -O - | sudo apt-key add -
 sudo sh -c "echo \"deb http://pkg.tarsnap.com/deb/$release ./\" > /etc/apt/sources.list.d/tarsnap.list"
 
-sudo apt update
-sudo apt install -y google-chrome-stable fluxgui nodejs yarn fish docker-ce atom syncthing tarsnap
+sudo apt-get update
+sudo apt-get install -y google-chrome-stable nodejs yarn fish docker-ce atom syncthing tarsnap
 
 . ./autostart.sh
 
@@ -68,11 +72,13 @@ git config --global user.name 'Evan'
 # rot13 email, because spambots. http://stackoverflow.com/questions/5442436/using-rot13-and-tr-command-for-having-an-encrypted-email-address
 git config --global user.email `echo tvguho@rebffba.bet | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'` 
 
-# keygen needs manual input. do this last.
-if [ ! -e ~/.ssh/id_rsa ]; then
+# keygen needs manual input. do this last. don't do it for CI builds.
+set +u
+if [ -z "$CI" -a ! -e ~/.ssh/id_rsa ]; then
   ssh-keygen -t rsa
   xclip -sel clip ~/.ssh/id_rsa.pub
   sensible-browser https://github.com/settings/ssh
   sensible-browser https://gitlab.com/profile/keys
   sensible-browser https://bitbucket.org/account/ssh-keys/
 fi
+set -u
