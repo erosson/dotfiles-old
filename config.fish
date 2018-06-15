@@ -1,4 +1,4 @@
-set PATH (yarn global bin) $PATH
+set PATH (yarn global bin) ~/.local/bin /usr/local/go/bin $PATH
 
 # https://stackoverflow.com/a/25200448
 # gnu screen titles
