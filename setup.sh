@@ -34,10 +34,10 @@ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
 sudo apt-add-repository -y ppa:fish-shell/release-2
 #sudo apt-add-repository -y "deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu $release main"
 # dropbox: https://www.dropbox.com/help/desktop-web/linux-repository
-sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+#sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
 #sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu (lsb_release -sc) main"
 #sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $release main"
-sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $old_release main"
+#sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $old_release main"
 # docker: https://askubuntu.com/questions/938700/how-do-i-install-docker-on-ubuntu-16-04-lts
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 #sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu (lsb_release -cs) stable"
