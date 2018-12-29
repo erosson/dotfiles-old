@@ -9,7 +9,7 @@ remotes() {
 remotes scratch __NO_ORIGIN__ | grep -v __NO_ORIGIN__
 remotes github __NO_ORIGIN__ | grep -v '\(@\|https://\)github'
 remotes gitlab __NO_ORIGIN__ | grep -v @gitlab
-remotes bitbucket __NO_ORIGIN__ | grep -v @bitbucket
+#remotes bitbucket __NO_ORIGIN__ | grep -v @bitbucket
 remotes keybase __NO_ORIGIN__ | grep -v keybase://
 
 # print repositories with unpushed changes. doesn't make sense for scratch/, nothing to push to.
