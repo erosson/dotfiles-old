@@ -3,5 +3,4 @@ services:
 language: shell
 
 script:
-- docker build -t dotfiles-container .
-- docker run dotfiles-container
+- ./test.sh

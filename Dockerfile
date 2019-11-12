@@ -2,7 +2,10 @@
 # runs without crashing; no functionality's tested. The docker image doesn't
 # completely match a clean ubuntu install on real hardware - some packages are
 # missing - but it's close enough.
-FROM ubuntu:17.10
+#
+# :rolling is the latest ubuntu release. (:latest is the latest LTS)
+# https://hub.docker.com/_/ubuntu/
+FROM ubuntu:rolling
 
 RUN apt-get update
 
@@ -16,7 +19,8 @@ RUN adduser $USER sudo
 RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER $USER
 WORKDIR /dotfiles-setup/
-ADD . .
-
 ENV CI 1
+ADD . .
+RUN cat /etc/lsb-release
+
 CMD /dotfiles-setup/setup.sh
