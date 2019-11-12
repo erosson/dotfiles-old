@@ -6,4 +6,5 @@ if ! [ -x "$(command -v yarn)" ]; then
   sudo apt-get install -yqq yarn
 fi
 echo -n "yarn: "
+yarn global add meta
 yarn --version
