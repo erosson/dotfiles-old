@@ -23,4 +23,5 @@
 ./setup/ssh-keygen.sh
 
 # victory message, announced by a cow, with pretty rainbow colors
+set +x
 echo "dotfiles setup successful! Enjoy your new machine." | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf | head -n 1) | lolcat

@@ -20,6 +20,8 @@ RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER $USER
 WORKDIR /dotfiles-setup/
 ENV CI 1
+# non-docker ubuntu has /usr/games in the path, and it makes cowsay work
+ENV PATH $PATH:/usr/games
 ADD . .
 RUN cat /etc/lsb-release
 

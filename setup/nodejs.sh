@@ -7,7 +7,6 @@ if ! [ -x "$(command -v node)" ]; then
   curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
   VERSION=node_12.x
   DISTRO="$(lsb_release -s -c)"
-  sudo apt-get install -y nodejs
   sudo add-apt-repository -yu "deb https://deb.nodesource.com/$VERSION $DISTRO main"
   #sudo add-apt-repository -yu "deb-src https://deb.nodesource.com/$VERSION $DISTRO main"
   sudo apt-get install -yqq nodejs
