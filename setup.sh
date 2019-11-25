@@ -15,6 +15,7 @@
 ./setup/nodejs.sh
 ./setup/yarn.sh
 ./setup/syncthing.sh
+./setup/keybase.sh
 
 # Symlink config to home directory, only after software it depends on is installed
 ./setup/home.sh
