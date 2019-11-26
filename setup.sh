@@ -3,9 +3,10 @@
 # Simple apt software installs
 ./setup/apt.sh
 
-# Simple Configuration
+# Simple configuration
 ./setup/capsesc.sh
 ./setup/git.sh
+./setup/clock.sh
 
 # Install things from outside Ubuntu's official repos
 ./setup/fish.sh
