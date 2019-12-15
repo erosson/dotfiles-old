@@ -1,4 +1,4 @@
-#!/bin/sh -eu
+#!/bin/sh -e
 # 2019/11/11: https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux
 if ! [ -x "$(command -v atom)" ]; then
   wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -

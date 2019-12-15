@@ -1,4 +1,4 @@
-#!/bin/sh -eu
+#!/bin/sh -e
 # I'm often dual-booting Windows alongside Ubuntu. It's easier to make Ubuntu
 # match the Windows clock, even though Windows is "wrong".
 #
